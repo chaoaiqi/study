@@ -2,6 +2,10 @@ package juejin.lc.linkedList;
 
 /**
  * 1.单链表反转
+ * 2.检测环
+ * 3.求链表的中间结点
+ * 4.删除倒数第k个节点
+ * 5.两个有序的链表合并
  * 
  * @author mic
  *
