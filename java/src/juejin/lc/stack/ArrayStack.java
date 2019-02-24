@@ -75,9 +75,9 @@ public class ArrayStack {
 			//入栈 
 			arrayStack.push(i);
 		}
-//		arrayStack.printAll();
-//		//出栈
-		arrayStack.pop();
 		arrayStack.printAll();
+//		//出栈
+//		arrayStack.pop();
+//		arrayStack.printAll();
 	}
 }
