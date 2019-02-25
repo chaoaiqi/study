@@ -15,17 +15,23 @@ public class SimpleCalculator {
 	/**
 	 * 存储数值的栈
 	 */
-	private Stack<Integer> valStack = new Stack<Integer>();
+	private Stack<Integer> valStack;
 
 	/**
 	 * 存储运算符的栈
 	 */
-	private Stack<String> calStack = new Stack<String>();
+	private Stack<String> calStack;
 
 	/**
 	 * 计算结果
 	 */
 	private Integer result;
+	
+	
+	public SimpleCalculator() {
+		valStack = new Stack<Integer>();
+		calStack = new Stack<String>();
+	}
 	/**
 	 * 简易计算器
 	 * 
