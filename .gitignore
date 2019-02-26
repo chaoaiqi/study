@@ -28,3 +28,6 @@ hs_err_pid*
 .classpath
 
 /java/bin/.gitignore
+
+*.idea
+*.iml
