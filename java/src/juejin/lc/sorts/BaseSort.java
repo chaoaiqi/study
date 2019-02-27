@@ -72,7 +72,7 @@ public class BaseSort {
             int tmp = arrays[i];
             arrays[i] = arrays[minIndex];
             arrays[minIndex] = tmp;
-            System.out.print("第" + i + "次交换后:");
+            System.out.print("第" + i + "次交换:");
             printAll(arrays);
         }
         return arrays;
@@ -143,7 +143,7 @@ public class BaseSort {
      * @param pivot  数组中间
      * @param tail   数组尾
      */
-    private static void merge(int[] arrays, int head, int pivot, int tail) {
+    private void merge(int[] arrays, int head, int pivot, int tail) {
         int p = head;
         int q = pivot + 1;
         int k = 0;
@@ -199,11 +199,11 @@ public class BaseSort {
         baseSort.printAll(selectRes);
 
         int[] quickArray = {2, 4, 1, 3, 6, 5};
-        baseSort.quickSort(quickArray, 0, arrays.length - 1);
+        baseSort.quickSort(quickArray, 0, quickArray.length - 1);
         System.out.print("快速排序:");
         baseSort.printAll(quickArray);
         int[] mergeArray = {2, 4, 1, 3, 6, 5};
-        baseSort.mergeSort(mergeArray, 0, arrays.length - 1);
+        baseSort.mergeSort(mergeArray, 0, mergeArray.length - 1);
         System.out.print("归并排序:");
         baseSort.printAll(mergeArray);
     }
