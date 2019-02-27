@@ -13,13 +13,19 @@ public class BaseSort {
     private int[] bubbleSort(int[] arrays) {
         //第一个循环遍历，第二个循环比较
         for (int i = 0; i < arrays.length; i++) {
+            //退出标记
+            boolean flag = false;
             for (int j = i + 1; j < arrays.length; j++) {
                 if (arrays[i] > arrays[j]) {
                     int tmp = arrays[i];
                     arrays[i] = arrays[j];
                     arrays[j] = tmp;
+                    flag = true;
                 }
             }
+            if (!flag) break;
+            System.out.print("第" + i + "次交换");
+            printAll(arrays);
         }
         return arrays;
     }
@@ -43,6 +49,8 @@ public class BaseSort {
                 }
             }
             arrays[j + 1] = value;
+            System.out.print("第" + i + "次交换");
+            printAll(arrays);
         }
         return arrays;
     }
@@ -56,16 +64,16 @@ public class BaseSort {
     private int[] selectionSort(int[] arrays) {
         for (int i = 0; i < arrays.length; i++) {
             int minIndex = i;
-            int minValue = arrays[i];
             for (int j = i; j < arrays.length; j++) {
-                if (arrays[j] < minValue) {
+                if (arrays[j] < arrays[minIndex]) {
                     minIndex = j;
-                    minValue = arrays[j];
                 }
             }
             int tmp = arrays[i];
             arrays[i] = arrays[minIndex];
             arrays[minIndex] = tmp;
+            System.out.print("第" + i + "次交换后:");
+            printAll(arrays);
         }
         return arrays;
     }
@@ -166,7 +174,8 @@ public class BaseSort {
 //            arrays[head + i] = tmp[i];
 //        }
         //上述代码与下面代码等同，只不过idea有个警告，我就转换了一下
-        if (tail - head + 1 >= 0) System.arraycopy(tmp, 0, arrays, head, tail - head + 1);
+        if (tail - head + 1 >= 0)
+            System.arraycopy(tmp, 0, arrays, head, tail - head + 1);
     }
 
     private void printAll(int[] arrays) {
