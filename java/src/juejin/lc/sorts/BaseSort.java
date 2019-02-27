@@ -144,6 +144,7 @@ public class BaseSort {
      * @param tail   数组尾
      */
     private void merge(int[] arrays, int head, int pivot, int tail) {
+        System.out.println("head=" + head + ",pivot=" + pivot + "tail=" + tail);
         int p = head;
         int q = pivot + 1;
         int k = 0;
