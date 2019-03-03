@@ -15,7 +15,7 @@ public class LinkedListAlgo {
 	/**
 	 * 单链表反转
 	 * 
-	 * @param nodes
+	 * @param node
 	 */
 	public Node reverse(Node node) {
 		Node resNode = null;
