@@ -2,7 +2,6 @@ package juejin.lc.hashTable;
 
 
 import java.util.LinkedList;
-import java.util.Queue;
 
 /**
  * 线性探测法
@@ -103,7 +102,6 @@ public class LinearProbingHT<Key, Value> {
     private Value get(Key key) {
         for (int i = hash(key); null != keys[i]; i = (i + 1) % size) {
             if (keys[i].equals(key)) {
-                System.out.println(values[i]);
                 return values[i];
             }
         }
@@ -121,7 +119,7 @@ public class LinearProbingHT<Key, Value> {
         while (!key.equals(keys[i])) {
             i = (i + 1) % size;
         }
-        System.out.println("del1:" + values[i]);
+        System.out.println("del-value:" + values[i]);
         keys[i] = null;
         values[i] = null;
         i = (i + 1) % size;
@@ -130,7 +128,6 @@ public class LinearProbingHT<Key, Value> {
             Value valueToRedo = values[i];
             keys[i] = null;
             values[i] = null;
-            System.out.println("del2:" + values[i]);
             --count;
             put(keyToRedo, valueToRedo);
             i = (i + 1) % size;
@@ -138,12 +135,14 @@ public class LinearProbingHT<Key, Value> {
         --count;
         if (count > 0 && count == size / 8) resize(size / 2);//缩容
     }
+
     private Iterable<Key> keys() {
-        Queue<Key> queue = new LinkedList<>();
+        LinkedList<Key> linkedList = new LinkedList<>();
         for (int i = 0; i < size; i++)
-            if (keys[i] != null) queue.add(keys[i]);
-        return queue;
+            if (keys[i] != null) linkedList.add(keys[i]);
+        return linkedList;
     }
+
     private boolean contains(Key key) {
         if (key == null)
             throw new IllegalArgumentException("key is null");
@@ -158,11 +157,11 @@ public class LinearProbingHT<Key, Value> {
 //        int key = 6;
 //        String value = linearProbingHT.get(key);
 //        System.out.println("{ key = " + key + "," + value + "}");
-        int delKey = 8;
-        linearProbingHT.delete(delKey);
-        for (Integer key:linearProbingHT.keys()) {
-            String value = linearProbingHT.get(key);
-            System.out.println("{ key = " + key + "," + value + "}");
+//        int delKey = 8;
+//        linearProbingHT.delete(delKey);
+        for (Integer curKey : linearProbingHT.keys()) {
+            String curValue = linearProbingHT.get(curKey);
+            System.out.println("{ key = " + curKey + "," + curValue + "}");
         }
     }
 }

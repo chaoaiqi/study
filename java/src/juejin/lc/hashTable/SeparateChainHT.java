@@ -1,7 +1,6 @@
 package juejin.lc.hashTable;
 
 import java.util.LinkedList;
-import java.util.Queue;
 
 /**
  * 拉链法
@@ -10,11 +9,8 @@ public class SeparateChainHT<Key, Value> {
     /**
      * 初始化大小
      */
-    private static final int INIT_CAPACITY = 4;
-    /**
-     * 键值对总数
-     */
-    private int count;
+    private static final int INIT_CAPACITY = 997;
+
     /**
      * 散列表大小
      */
@@ -23,7 +19,7 @@ public class SeparateChainHT<Key, Value> {
     /**
      * 存放链表对象的数组
      */
-    private SeparateChainHT<Key, Value>[] separateChainHTS;
+    private SequentialSearchST<Key, Value>[] sequentialSearchSTS;
 
     /**
      * 无参构造方法
@@ -37,12 +33,13 @@ public class SeparateChainHT<Key, Value> {
      *
      * @param capacity 大小
      */
-    private SeparateChainHT(int capacity) {
+    @SuppressWarnings("unchecked")
+	private SeparateChainHT(int capacity) {
         //创建M条链表
         this.size = capacity;
-        separateChainHTS = (SeparateChainHT<Key, Value>[]) new SeparateChainHT[capacity];
+        sequentialSearchSTS = (SequentialSearchST<Key, Value>[]) new SequentialSearchST[capacity];
         for (int i = 0; i < size; i++) {
-            separateChainHTS[i] = new SeparateChainHT<>();
+            sequentialSearchSTS[i] = new SequentialSearchST<>();
         }
     }
 
@@ -63,7 +60,7 @@ public class SeparateChainHT<Key, Value> {
      * @param value 值
      */
     private void put(Key key, Value value) {
-        separateChainHTS[hash(key)].put(key, value);
+        sequentialSearchSTS[hash(key)].put(key, value);
     }
 
     /**
@@ -73,7 +70,7 @@ public class SeparateChainHT<Key, Value> {
      * @return 值
      */
     private Value get(Key key) {
-        return (Value) separateChainHTS[hash(key)].get(key);
+        return sequentialSearchSTS[hash(key)].get(key);
     }
 
     /**
@@ -81,9 +78,9 @@ public class SeparateChainHT<Key, Value> {
      * @return 遍历
      */
     private Iterable<Key> keys() {
-        Queue<Key> queue = new LinkedList<>();
+        LinkedList<Key> queue = new LinkedList<>();
         for (int i = 0; i < size; i++) {
-            for (Key key : separateChainHTS[i].keys())
+            for (Key key : sequentialSearchSTS[i].keys())
                 queue.add(key);
         }
         return queue;
