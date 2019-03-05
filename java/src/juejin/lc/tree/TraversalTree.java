@@ -1,7 +1,7 @@
 package juejin.lc.tree;
 
 /**
- * 三种二叉树的遍历
+ * 二叉树的遍历
  */
 public class TraversalTree {
     /**

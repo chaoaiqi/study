@@ -126,6 +126,52 @@ public class BinarySearchTree {
         return node;
     }
 
+    /**
+     * 查找某个节点的前驱节点
+     *
+     * @param data
+     * @return
+     */
+    private Node findPreNode(int data) {
+        if (null == tree) return null;
+        Node node = tree;
+        Node preNode = null;
+        while (null != node.left) {
+            if (null == preNode) {
+                preNode = node.left;
+            } else {
+                if (preNode.data < node.left.data) {
+                    preNode = node.left;
+                }
+            }
+            node = node.left;
+        }
+        return preNode;
+    }
+
+    /**
+     * 查找某个节点后续节点
+     *
+     * @param data
+     * @return
+     */
+    private Node findNextNode(int data) {
+        if (null == tree) return null;
+        Node node = tree;
+        Node nextNode = null;
+        while (null != node.right) {
+            if (null == nextNode) {
+                nextNode = node.right;
+            } else {
+                if (nextNode.data > node.right.data) {
+                    nextNode = node.right;
+                }
+            }
+            node = node.right;
+        }
+        return nextNode;
+    }
+
     public static void main(String[] args) {
         BinarySearchTree binarySearchTree = new BinarySearchTree();
         TraversalTree traversalTree = new TraversalTree();
@@ -139,18 +185,33 @@ public class BinarySearchTree {
         binarySearchTree.insert(25);
         binarySearchTree.insert(33);
         binarySearchTree.insert(18);
-        binarySearchTree.insert(55);
         System.out.println("前序遍历");
         traversalTree.preOrderTraversal(binarySearchTree.tree);
         System.out.println();
         System.out.println("中序遍历");
-        int find = 6;
-        Node resNode = binarySearchTree.find(find);
-        traversalTree.inOrderTraversal(resNode);
+        traversalTree.inOrderTraversal(binarySearchTree.tree);
         System.out.println();
         System.out.println("后序遍历");
-        int delete = 8;
-        binarySearchTree.delete(delete);
         traversalTree.postOrderTraversal(binarySearchTree.tree);
+//        int find = 6;
+//        Node resNode = binarySearchTree.find(find);
+//        if (null != resNode)
+//            System.out.println(resNode.data);
+//        int delete = 8;
+//        binarySearchTree.delete(delete);
+//        Node maxNode = binarySearchTree.findMaxNode();
+//        if (null != maxNode)
+//            System.out.println("最大的节点的值为:" + maxNode.data);
+//        Node minNode = binarySearchTree.findMinNode();
+//        if (null != minNode)
+//            System.out.println("最小的节点的值为:" + minNode.data);
+        System.out.println();
+        int data = 24;
+        Node preNode = binarySearchTree.findPreNode(data);
+        if (null != preNode)
+            System.out.println("前驱节点的值为:" + preNode.data);
+        Node nextNode = binarySearchTree.findNextNode(data);
+        if (null != nextNode)
+            System.out.println("后驱节点的值为:" + nextNode.data);
     }
 }
