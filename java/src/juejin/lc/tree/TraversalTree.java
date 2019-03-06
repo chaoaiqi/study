@@ -48,8 +48,8 @@ public class TraversalTree {
      */
     public void levelTraversal(Node tree) {
         if (null == tree) return;
-        LinkedList<Node> linkedList = new LinkedList<Node>();
-        Node node = null;
+        LinkedList<Node> linkedList = new LinkedList<>();
+        Node node;
         linkedList.offer(tree);
         while (!linkedList.isEmpty()) {
             node = linkedList.poll();
@@ -61,6 +61,5 @@ public class TraversalTree {
                 linkedList.offer(node.right);
             }
         }
-
     }
 }
