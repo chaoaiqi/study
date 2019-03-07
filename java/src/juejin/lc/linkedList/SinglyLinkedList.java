@@ -9,7 +9,7 @@ public class SinglyLinkedList {
 	/**
 	 * 声明一个头节点
 	 */
-	private Node head;
+	public Node head;
 
 	/**
 	 * 1.插入
