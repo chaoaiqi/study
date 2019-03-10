@@ -1,5 +1,9 @@
 package juejin.lc.tree;
 
+import juejin.lc.queue.LinkedQueue;
+
+import java.util.LinkedList;
+
 /**
  * 二叉树的遍历
  */
@@ -11,8 +15,8 @@ public class TraversalTree {
     public void preOrderTraversal(Node tree) {
         if (null == tree) return;
         System.out.print(tree.data + " ");
-        postOrderTraversal(tree.left);
-        postOrderTraversal(tree.right);
+        preOrderTraversal(tree.left);
+        preOrderTraversal(tree.right);
     }
 
     /**
@@ -21,9 +25,9 @@ public class TraversalTree {
      */
     public void inOrderTraversal(Node tree) {
         if (null == tree) return;
-        postOrderTraversal(tree.left);
+        inOrderTraversal(tree.left);
         System.out.print(tree.data + " ");
-        postOrderTraversal(tree.right);
+        inOrderTraversal(tree.right);
     }
 
     /**
@@ -35,5 +39,27 @@ public class TraversalTree {
         postOrderTraversal(tree.left);
         postOrderTraversal(tree.right);
         System.out.print(tree.data + " ");
+    }
+
+    /**
+     * 按层遍历
+     *
+     * @param tree
+     */
+    public void levelTraversal(Node tree) {
+        if (null == tree) return;
+        LinkedList<Node> linkedList = new LinkedList<>();
+        Node node;
+        linkedList.offer(tree);
+        while (!linkedList.isEmpty()) {
+            node = linkedList.poll();
+            System.out.print(node.data + " ");
+            if (null != node.left) {
+                linkedList.offer(node.left);
+            }
+            if (null != node.right) {
+                linkedList.offer(node.right);
+            }
+        }
     }
 }

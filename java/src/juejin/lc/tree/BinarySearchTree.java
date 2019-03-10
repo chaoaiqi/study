@@ -63,6 +63,7 @@ public class BinarySearchTree {
                 pp = p.left;
                 p = p.left;
             }
+            //删除操作
             node.data = p.data;
             node = p;
             pNode = pp;
@@ -129,47 +130,37 @@ public class BinarySearchTree {
     /**
      * 查找某个节点的前驱节点
      *
-     * @param data
-     * @return
+     * @param node
+     * @return 前驱节点
      */
-    private Node findPreNode(int data) {
-        if (null == tree) return null;
-        Node node = tree;
-        Node preNode = null;
-        while (null != node.left) {
-            if (null == preNode) {
-                preNode = node.left;
-            } else {
-                if (preNode.data < node.left.data) {
-                    preNode = node.left;
-                }
+    private Node findPreNode(Node node) {
+        if (null == node) return null;
+        if (null != node.left){
+            Node left = node.left;
+            while (null != left.right){
+                left = left.right;
             }
-            node = node.left;
+            return left;
         }
-        return preNode;
+        return null;
     }
 
     /**
      * 查找某个节点后续节点
      *
-     * @param data
-     * @return
+     * @param node
+     * @return 后继节点
      */
-    private Node findNextNode(int data) {
-        if (null == tree) return null;
-        Node node = tree;
-        Node nextNode = null;
-        while (null != node.right) {
-            if (null == nextNode) {
-                nextNode = node.right;
-            } else {
-                if (nextNode.data > node.right.data) {
-                    nextNode = node.right;
-                }
+    private Node findNextNode(Node node) {
+        if (null == node) return null;
+        if (null != node.right) {
+            Node right = node.right;
+            while (null != right.left) {
+                right = right.left;
             }
-            node = node.right;
+            return right;
         }
-        return nextNode;
+        return null;
     }
 
     public static void main(String[] args) {
@@ -185,33 +176,34 @@ public class BinarySearchTree {
         binarySearchTree.insert(25);
         binarySearchTree.insert(33);
         binarySearchTree.insert(18);
-        System.out.println("前序遍历");
-        traversalTree.preOrderTraversal(binarySearchTree.tree);
-        System.out.println();
-        System.out.println("中序遍历");
-        traversalTree.inOrderTraversal(binarySearchTree.tree);
-        System.out.println();
-        System.out.println("后序遍历");
-        traversalTree.postOrderTraversal(binarySearchTree.tree);
-//        int find = 6;
-//        Node resNode = binarySearchTree.find(find);
-//        if (null != resNode)
-//            System.out.println(resNode.data);
+        //          24
+        //     8           36
+        //  6    11     25    77
+        //    7     18      33
+//        System.out.println("前序遍历:");
+//        traversalTree.preOrderTraversal(binarySearchTree.tree);
+//        System.out.println();
+//        System.out.println("中序遍历:");
+//        traversalTree.inOrderTraversal(binarySearchTree.tree);
+//        System.out.println();
+//        System.out.println("后序遍历:");
+//        traversalTree.postOrderTraversal(binarySearchTree.tree);
+//        System.out.println();
+//        System.out.println("层级遍历:");
+//        traversalTree.levelTraversal(binarySearchTree.tree);
 //        int delete = 8;
 //        binarySearchTree.delete(delete);
-//        Node maxNode = binarySearchTree.findMaxNode();
-//        if (null != maxNode)
-//            System.out.println("最大的节点的值为:" + maxNode.data);
-//        Node minNode = binarySearchTree.findMinNode();
-//        if (null != minNode)
-//            System.out.println("最小的节点的值为:" + minNode.data);
         System.out.println();
-        int data = 24;
-        Node preNode = binarySearchTree.findPreNode(data);
-        if (null != preNode)
-            System.out.println("前驱节点的值为:" + preNode.data);
-        Node nextNode = binarySearchTree.findNextNode(data);
-        if (null != nextNode)
-            System.out.println("后驱节点的值为:" + nextNode.data);
+        Node maxNode = binarySearchTree.findMaxNode();
+        if (null != maxNode)System.out.println("最大的节点的值为:" + maxNode.data);
+        Node minNode = binarySearchTree.findMinNode();
+        if (null != minNode)System.out.println("最小的节点的值为:" + minNode.data);
+        System.out.println();
+        int find = 24;
+        Node node = binarySearchTree.find(find);
+        Node preNode = binarySearchTree.findPreNode(node);
+        if (null != preNode)System.out.println("前驱节点的值为:" + preNode.data);
+        Node nextNode = binarySearchTree.findNextNode(node);
+        if (null != nextNode)System.out.println("后驱节点的值为:" + nextNode.data);
     }
 }
