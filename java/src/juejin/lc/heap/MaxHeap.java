@@ -7,22 +7,22 @@ public class MaxHeap {
     /**
      * 数组，从下标 1开始存储数据
      */
-    private int[] arrays;
+    public int[] arrays;
     /**
      * 数组大小
      */
-    private int size;
+    public int size;
     /**
      * 数组中存储数据数量
      */
-    private int count;
+    public int count;
 
     /**
      * 有参构造方法
      *
      * @param capacity 数组大小
      */
-    private MaxHeap(int capacity) {
+    public MaxHeap(int capacity) {
         arrays = new int[++capacity];
         size = capacity;
         count = 0;
@@ -33,7 +33,7 @@ public class MaxHeap {
      *
      * @param data 数据
      */
-    private void insert(int data) {
+    public void insert(int data) {
         if (count >= size) return;
         arrays[++count] = data;
         int i = count;
@@ -46,24 +46,26 @@ public class MaxHeap {
     /**
      * 移除堆顶元素
      */
-    private void removeMax() {
-        if (count == 0) return;
+    public int removeMax() {
+        if (count == 0) return -1;
+        int res = arrays[1];
         arrays[1] = arrays[count];
         --count;
         heapify(arrays, count, 1);
+        return res;
     }
 
     /**
-     * 自上向下堆化
+     * 自下向上堆化
      *
      * @param arrays 数组
      * @param count  数组数量
-     * @param i      1
+     * @param i      index
      */
-    private void heapify(int[] arrays, int count, int i) {
+    public void heapify(int[] arrays, int count, int i) {
         while (true) {
             int max = i;
-            if (i * 2 < count && arrays[i] < arrays[i * 2]) max = i * 2;
+            if (i * 2 <= count && arrays[i] < arrays[i * 2]) max = i * 2;
             if (i * 2 + 1 <= count && arrays[max] < arrays[i * 2 + 1]) max = i * 2 + 1;
             if (max == i) break;
             swap(arrays, i, max);
@@ -74,18 +76,47 @@ public class MaxHeap {
     /**
      * 交换
      */
-    private void swap(int[] arrays, int p, int q) {
+    public void swap(int[] arrays, int p, int q) {
         int temp = arrays[p];
         arrays[p] = arrays[q];
         arrays[q] = temp;
     }
 
+
+    /**
+     * 建堆
+     *
+     * @param arrays 数组
+     * @param size   数组大小
+     */
+    public void buildHeap(int[] arrays, int size) {
+        for (int i = size / 2; i > 0; --i) {
+            heapify(arrays, size, i);
+        }
+    }
+
+    /**
+     * 排序
+     */
+    public void sort() {
+        buildHeap(arrays, count);
+        System.out.println("建堆后:");
+        printAll();
+        int i = count;
+        while (i > 1) {
+            swap(arrays, 1, i--);
+            heapify(arrays, i, 1);
+        }
+    }
+
+
+
     /**
      * 类似一个层级遍历
      */
-    private void printAll(){
+    public void printAll() {
         for (int i = 1; i < count + 1; i++) {
-            System.out.print(arrays[i] +  " ");
+            System.out.print(arrays[i] + " ");
         }
         System.out.println();
     }
@@ -97,8 +128,12 @@ public class MaxHeap {
         }
         System.out.println("大顶堆:");
         maxHeap.printAll();
-        maxHeap.removeMax();
+        int res = maxHeap.removeMax();
+        System.out.println("顶堆元素:" + res);
         System.out.println("删除堆顶元素后:");
+        maxHeap.printAll();
+        maxHeap.sort();
+        System.out.println("排序后:");
         maxHeap.printAll();
     }
 }
