@@ -63,7 +63,7 @@ public class BFArithmetic {
         String pattern = "world";
         int res = bf.bfSearch(txt, pattern);
         System.out.println("BF算法匹配结果:" + res);
-        int resT = bf.bfSearchT(txt, pattern);
-        System.out.println("BF算法(显示回退)匹配结果:" + resT);
+//        int resT = bf.bfSearchT(txt, pattern);
+//        System.out.println("BF算法(显示回退)匹配结果:" + resT);
     }
 }
