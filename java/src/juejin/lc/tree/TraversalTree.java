@@ -1,6 +1,5 @@
 package juejin.lc.tree;
 
-import juejin.lc.queue.LinkedQueue;
 
 import java.util.LinkedList;
 
