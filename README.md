@@ -3,6 +3,7 @@
 
 ## 传送门
 
+### [字符串匹配BM算法](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/string/BMArithmetic.java)
 ### [字符串匹配RK算法](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/string/RKArithmetic.java)
 ### [字符串匹配BF算法](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/string/BFArithmetic.java)
 ### [基于无向图的bfs和dfs](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/graph/Graph.java)
