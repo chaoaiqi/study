@@ -3,6 +3,7 @@
 
 ## 传送门
 
+### [字符串匹配KMP算法](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/string/KMPArithmetic.java)
 ### [字符串匹配BM启发式算法](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/string/BoyerMoore.java)
 ### [字符串匹配BM算法](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/string/BMArithmetic.java)
 ### [字符串匹配RK算法](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/string/RKArithmetic.java)
