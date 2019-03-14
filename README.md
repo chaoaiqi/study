@@ -3,11 +3,12 @@
 
 ## 传送门
 
-### [字符串匹配KMP算法](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/string/KMPArithmetic.java)
-### [字符串匹配BM启发式算法](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/string/BoyerMoore.java)
-### [字符串匹配BM算法](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/string/BMArithmetic.java)
-### [字符串匹配RK算法](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/string/RKArithmetic.java)
-### [字符串匹配BF算法](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/string/BFArithmetic.java)
+### [KMP算法(基于DFA)](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/string/KMPByDFA.java)
+### [KMP算法](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/string/KMPArithmetic.java)
+### [BM启发式算法](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/string/BoyerMoore.java)
+### [BM算法](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/string/BMArithmetic.java)
+### [RK算法](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/string/RKArithmetic.java)
+### [BF算法](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/string/BFArithmetic.java)
 ### [基于无向图的bfs和dfs](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/graph/Graph.java)
 ### [求一组动态数据集合的最大 Top K](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/leetCode/GetTopKArrays.java)
 ### [堆的实现及求一组动态数据的中位数](https://github.com/chaoaiqi/study/tree/master/java/src/juejin/lc/heap)
