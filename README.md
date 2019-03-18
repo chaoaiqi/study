@@ -3,6 +3,7 @@
 
 ## 传送门
 
+### [双向链表](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/string/DulLinkList.java)
 ### [KMP算法(基于DFA)](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/string/KMPByDFA.java)
 ### [KMP算法](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/string/KMPArithmetic.java)
 ### [BM启发式算法](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/string/BoyerMoore.java)
