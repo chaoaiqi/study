@@ -3,6 +3,7 @@
 
 ## 传送门
 
+### [简易Trie树](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/linkedList/TrieTree.java)
 ### [循环链表](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/linkedList/CircleLinkList.java)
 ### [双向链表](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/linkedList/DulLinkList.java)
 ### [KMP算法(基于DFA)](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/string/KMPByDFA.java)
