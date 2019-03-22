@@ -17,7 +17,15 @@ public class TrieTree {
      */
     private int count;
 
+    /**
+     * 提示词列表
+     */
     private List<String> list;
+
+    /**
+     * 输入值
+     */
+    private String pattern;
 
     /**
      * 存储一个无意义的字符
@@ -68,10 +76,8 @@ public class TrieTree {
 
     /**
      * 模糊匹配提示
-     *
-     * @param pattern 前缀
      */
-    private void match(String pattern) {
+    private void match() {
         char[] patChars = pattern.toCharArray();
         TrieNode p = root;
         for (char patChar : patChars) {
@@ -92,13 +98,15 @@ public class TrieTree {
     private void traversal(TrieNode trieNode, String str) {
         if (null != trieNode) {
             str += trieNode.data;
-        } else {
-            if (!list.contains(str))
-                list.add(str);
-            return;
-        }
-        for (int i = 0; i < trieNode.children.length; i++) {
-            traversal(trieNode.children[i], str);
+            if (trieNode.isEndingChar) {
+                String curStr = pattern.length() == 1 ? str : pattern + str.substring(pattern.length() - 1);
+                if (!list.contains(curStr))
+                    list.add(curStr);
+                return;
+            }
+            for (int i = 0; i < trieNode.children.length; i++) {
+                traversal(trieNode.children[i], str);
+            }
         }
     }
 
@@ -140,8 +148,16 @@ public class TrieTree {
         String str = "hello";
         boolean res = trieTree.contains(str);
         System.out.println("trie树是否包含" + str + "返回结果:" + res);
-        String h = "h";
-        trieTree.match(h);
+
+        trieTree.pattern = "h";
+        trieTree.match();
+        System.out.println("单字符模糊匹配 " + trieTree.pattern + ":");
+        trieTree.printAll();
+
+        trieTree.list.clear();
+        trieTree.pattern = "he";
+        trieTree.match();
+        System.out.println("多字符模糊匹配 " + trieTree.pattern + ":");
         trieTree.printAll();
     }
 
