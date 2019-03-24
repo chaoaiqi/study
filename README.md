@@ -3,6 +3,7 @@
 
 ## 传送门
 
+### [统计字符串中某一单词出现的频率](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/tree/TrieTreeAlgo.java)
 ### [简易Trie树](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/tree/TrieTree.java)
 ### [循环链表](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/linkedList/CircleLinkList.java)
 ### [双向链表](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/linkedList/DulLinkList.java)

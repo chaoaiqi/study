@@ -161,7 +161,7 @@ public class TrieTree {
         trieTree.printAll();
     }
 
-    public class TrieNode {
+    private class TrieNode {
         /**
          * 字符
          */
