@@ -34,7 +34,7 @@ public class SeparateChainHT<Key, Value> {
      * @param capacity 大小
      */
     @SuppressWarnings("unchecked")
-	private SeparateChainHT(int capacity) {
+    private SeparateChainHT(int capacity) {
         //创建M条链表
         this.size = capacity;
         sequentialSearchSTS = (SequentialSearchST<Key, Value>[]) new SequentialSearchST[capacity];
@@ -75,6 +75,7 @@ public class SeparateChainHT<Key, Value> {
 
     /**
      * keys()
+     *
      * @return 遍历
      */
     private Iterable<Key> keys() {

@@ -17,7 +17,9 @@ public class DulNode {
      */
     public DulNode next;
 
-    private DulNode(){}
+    private DulNode() {
+    }
+
     /**
      * 有参构造方法
      *

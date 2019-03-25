@@ -148,7 +148,7 @@ public class CircleLinkList {
         circleLinkList.insertTail(6);
         circleLinkList.insertTail(7);
         circleLinkList.insertTail(8);
-        circleLinkList.insertByIndex(3,4);
+        circleLinkList.insertByIndex(3, 4);
         circleLinkList.printAll();
         LinkedListAlgo linkedListAlgo = new LinkedListAlgo();
         boolean result = linkedListAlgo.checkCircle(circleLinkList.head);

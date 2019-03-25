@@ -55,12 +55,13 @@ public class KMPArithmetic {
         return next;
     }
 
-    private void print(int[] arrays){
+    private void print(int[] arrays) {
         for (int array : arrays) {
             System.out.print(array + " ");
         }
         System.out.println();
     }
+
     public static void main(String[] args) {
         KMPArithmetic kmpArithmetic = new KMPArithmetic();
         String txt = "hello world";

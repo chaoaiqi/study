@@ -88,6 +88,7 @@ public class DulLinkList {
 
     /**
      * 删除链表头部
+     *
      * @return 返回值
      */
     private DulNode deleteHead() {
@@ -102,6 +103,7 @@ public class DulLinkList {
 
     /**
      * 删除链表尾部
+     *
      * @return 返回值
      */
     private DulNode deleteTail() {

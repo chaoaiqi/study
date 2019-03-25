@@ -83,11 +83,11 @@ public class SequentialSearchST<Key, Value> {
     }
 
     public static void main(String[] args) {
-        SequentialSearchST<Integer,String> sequentialSearchST = new SequentialSearchST<>();
+        SequentialSearchST<Integer, String> sequentialSearchST = new SequentialSearchST<>();
         for (int i = 0; i < 6; i++) {
-            sequentialSearchST.put(i,"value = " + i);
+            sequentialSearchST.put(i, "value = " + i);
         }
-        for (Integer key:sequentialSearchST.keys()){
+        for (Integer key : sequentialSearchST.keys()) {
             String value = sequentialSearchST.get(key);
             System.out.println("{ key = " + key + ", " + value + " }");
         }

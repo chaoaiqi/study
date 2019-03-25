@@ -147,7 +147,7 @@ public class BinarySearch {
         int[] repArrays = {1, 3, 3, 4, 6, 6, 6, 9, 10, 11};
 //        int repRes = binarySearch.bSFindFirstT(repArrays,6);
 //        System.out.println(repRes);
-        int replRes = binarySearch.bSFindLast(repArrays,6);
+        int replRes = binarySearch.bSFindLast(repArrays, 6);
         System.out.println(replRes);
     }
 }

@@ -9,18 +9,19 @@ public class GetTopKArrays {
 
     /**
      * topK
+     *
      * @param arrays 数组大小
-     * @param k k
+     * @param k      k
      * @return 返回值
      */
-    private int[] topK(int[] arrays,int k){
+    private int[] topK(int[] arrays, int k) {
         PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(k);
         for (int i = 0; i < arrays.length; i++) {
-            if (priorityQueue.size() < k){
+            if (priorityQueue.size() < k) {
                 priorityQueue.offer(arrays[i]);
-            }else{
+            } else {
                 int value = priorityQueue.peek();
-                if (arrays[i] > value){
+                if (arrays[i] > value) {
                     priorityQueue.poll();
                     priorityQueue.offer(arrays[i]);
                 }
@@ -28,7 +29,7 @@ public class GetTopKArrays {
         }
         int[] result = new int[k];
         int index = 0;
-        while (!priorityQueue.isEmpty()){
+        while (!priorityQueue.isEmpty()) {
             result[index++] = priorityQueue.poll();
         }
         return result;
@@ -40,16 +41,17 @@ public class GetTopKArrays {
         }
         System.out.println();
     }
+
     public static void main(String[] args) {
         GetTopKArrays getTopKArrays = new GetTopKArrays();
         int[] arrays = new int[10];
-        for (int i = 0; i <10 ; i++) {
+        for (int i = 0; i < 10; i++) {
             arrays[i] = i;
         }
         System.out.println("一组动态数据:");
         getTopKArrays.print(arrays);
         int k = 3;
-        int[] result = getTopKArrays.topK(arrays,k);
+        int[] result = getTopKArrays.topK(arrays, k);
         System.out.println("前三的数据为:");
         getTopKArrays.print(result);
     }

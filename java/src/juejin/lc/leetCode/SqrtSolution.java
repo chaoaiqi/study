@@ -16,13 +16,13 @@ public class SqrtSolution {
     private double mySqrt(int num, double low, double high, double range) {
         double mid = (low + high) / 2f;
 //        System.out.println("mid = " + mid);
-        if (num - mid * mid < 0 ) {
-            return  mySqrt(num,low,(mid + high)/2f,range);
-        }else{
-            if (num - mid * mid > range){
-                return  mySqrt(num,(low + mid)/2f,high,range);
+        if (num - mid * mid < 0) {
+            return mySqrt(num, low, (mid + high) / 2f, range);
+        } else {
+            if (num - mid * mid > range) {
+                return mySqrt(num, (low + mid) / 2f, high, range);
             }
-            String str = String.format("%.6f",mid);
+            String str = String.format("%.6f", mid);
             return Double.valueOf(str);
         }
     }
