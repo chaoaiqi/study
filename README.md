@@ -1,5 +1,6 @@
 # Progress Every Day
 ## 传送门
+### [AVL树](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/tree/AVLTree.java)
 ### [N皇后](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/leetCode/SolveNQueens.java)
 ### [基于AC自动机的敏感词匹配系统](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/tree/AhoCorasick.java)
 ### [统计字符串中某一单词出现的频率](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/tree/TrieTreeAlgo.java)

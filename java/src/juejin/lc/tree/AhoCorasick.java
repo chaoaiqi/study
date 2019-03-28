@@ -99,8 +99,8 @@ public class AhoCorasick {
      */
     private void generate() {
         String[] strs = new String[]{"so", "hel", "oh", "llo"};
-        for (int i = 0; i < strs.length; i++) {
-            insert(strs[i]);
+        for (String str : strs) {
+            insert(str);
         }
     }
 
@@ -131,7 +131,7 @@ public class AhoCorasick {
         }
         System.out.println("经过敏感词系统过滤后...");
         System.out.println(Arrays.toString(strs));
-        for (String str:mapCache.keySet()){
+        for (String str : mapCache.keySet()) {
             System.out.println(str + "出现的次数为" + mapCache.get(str));
         }
     }
