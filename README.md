@@ -1,4 +1,5 @@
 # Progress Every Day
+
 ## 传送门
 ### [AVL树](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/tree/AVLTree.java)
 ### [N皇后](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/leetCode/SolveNQueens.java)
