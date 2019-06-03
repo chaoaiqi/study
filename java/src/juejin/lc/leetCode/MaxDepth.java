@@ -1,7 +1,5 @@
 package juejin.lc.leetCode;
 
-import java.util.LinkedList;
-
 /**
  * 二叉树的最大深度
  *
@@ -10,12 +8,10 @@ import java.util.LinkedList;
  */
 public class MaxDepth {
     private int solution(TreeNode root) {
-        if (root == null) {
+        if (null == root) {
             return 0;
         } else {
-            int ll = solution(root.left);
-            int rl = solution(root.right);
-            return Math.max(ll, rl) + 1;
+            return Math.max(solution(root.left), solution(root.right)) + 1;
         }
     }
 
