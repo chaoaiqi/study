@@ -1,5 +1,7 @@
 package juejin.lc.dynamicProgramming;
 
+import java.util.Arrays;
+
 /**
  * 最长公共子序列
  *
@@ -8,7 +10,7 @@ package juejin.lc.dynamicProgramming;
  */
 public class LongestCommonSequence {
     /**
-     * str1 = “abcbdab”;str2 = "bdcaba"。
+     * s1 = “abcbdab”;s2 = "bdcaba"。
      * 4
      * @param s1 string
      * @param s2 string
@@ -20,13 +22,14 @@ public class LongestCommonSequence {
 //        dp[i][0] = 0; (0<=i<=n)
 //        dp[i][j] = dp[i-1][j-1] +1; (str1[i-1] == str2[j-1])
 //        dp[i][j] = max{dp[i][j-1],dp[i-1][j]}; (str1[i-1] != str2[j-1])
-//           a b c b d a b
-//        b  0 1 0 1 0 0 1
-//        d  0 0 0 0 1 0 0
-//        c  0 0 1 0 0 0 0
-//        a  1 0 0 0 0 1 0
-//        b  0 1 0 1 0 0 1
-//        a  1 0 0 0 0 1 0
+//              b  d  c  a  b  a
+//         a   [0, 0, 0, 1, 0, 1]
+//         b   [1, 1, 1, 1, 2, 2]
+//         c   [0, 1, 2, 2, 2, 2]
+//         b   [1, 1, 2, 2, 3, 3]
+//         d   [0, 2, 2, 2, 3, 3]
+//         a   [0, 2, 2, 3, 3, 4]
+//         b   [1, 2, 2, 3, 4, 4]
         char[] str1 = s1.toCharArray();
         char[] str2 = s2.toCharArray();
         int[][] dp = new int[str1.length][str2.length];
@@ -53,15 +56,25 @@ public class LongestCommonSequence {
                 }
             }
         }
+        print(dp);
         int length = 0;
+        StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < str1.length; i++) {
             for (int j = 0; j < str2.length; j++) {
+                if (dp[i][j] == length && stringBuilder.indexOf(String.valueOf(str1[i])) == -1) {
+                    stringBuilder.append(str1[i]);
+                }
                 length = Math.max(length,dp[i][j]);
             }
         }
+        System.out.println(stringBuilder.reverse().toString());
         return length;
     }
-
+    private void print(int[][] dp) {
+        for (int[] ds : dp) {
+            System.out.println(Arrays.toString(ds));
+        }
+    }
     public static void main(String[] args) {
         LongestCommonSequence longestCommonSubString = new LongestCommonSequence();
         String s1 = "abcbdab";
