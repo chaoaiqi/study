@@ -1,5 +1,10 @@
 # Progress Every Day
 ## 传送门
+### [01背包](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/dynamicProgramming/BackPack01.java)
+### [最大子序列和](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/dynamicProgramming/MaxSubsequenceSum.java)
+### [最长递增子序列](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/dynamicProgramming/LongestIncreasingSubSequence.java)
+### [最长公共子串](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/dynamicProgramming/LongestCommonSubString.java)
+### [最长公共子序列](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/dynamicProgramming/LongestCommonSequence.java)
 ### [正则表达式匹配算法](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/string/Pattern.java)
 ### [AVL树](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/tree/AVLTree.java)
 ### [N皇后](https://github.com/chaoaiqi/study/blob/master/java/src/juejin/lc/leetCode/SolveNQueens.java)
