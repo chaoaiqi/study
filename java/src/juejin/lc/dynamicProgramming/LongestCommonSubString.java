@@ -10,7 +10,7 @@ import java.util.Arrays;
  */
 public class LongestCommonSubString {
     /**
-     * str1=“abc”,str2=”caba”,则str1，str2的最长公共子串为ab。
+     * str1 = “abcbdab”;str2 = "bdcaba",则str1，str2的最长公共子串为ab。
      *
      * @param str1 string
      * @param str2 string
@@ -18,21 +18,23 @@ public class LongestCommonSubString {
      */
     private String solution(String str1, String str2) {
 //        构建二阶矩阵
-//          str1 a  b  c
-//     str2  0   0  0  0
-//       c   0   0  0  1
-//       a   0   1  0  0
-//       b   0   0  2  0
-//       a   0   1  0  0
+//             b  d  c  a  b  a
+//         a  [0, 0, 0, 1, 0, 1]
+//         b  [1, 0, 0, 0, 2, 0]
+//         c  [0, 0, 1, 0, 0, 0]
+//         b  [1, 0, 0, 0, 1, 0]
+//         d  [0, 2, 0, 0, 0, 0]
+//         a  [0, 0, 0, 1, 0, 1]
+//         b  [1, 0, 0, 0, 2, 0]
 //        状态转移方程公式
-//        dp[0][j] = 0; (0<=j<=m)
-//        dp[i][0] = 0; (0<=i<=n)
+//        dp[i][0] = 0; (0<=i<=m)
+//        dp[0][j] = 0; (0<=j<=n)
 //        dp[i][j] = dp[i-1][j-1] +1; (str1[i] == str2[j])
 //        dp[i][j] = 0; (str1[i] != str2[j])
         int[][] dp = new int[str1.length()][str2.length()];
         char[] str1Chars = str1.toCharArray();
         char[] str2Chars = str2.toCharArray();
-        //对矩阵第一列赋值
+
         for (int i = 0; i < str1Chars.length; i++) {
             if (str1Chars[i] == str2Chars[0]) {
                 dp[i][0] = 1;
@@ -40,9 +42,6 @@ public class LongestCommonSubString {
                 dp[i][0] = 0;
             }
         }
-//        System.out.println("第一列：");
-//        print(dp);
-        //对矩阵第一行赋值
         for (int j = 0; j < str2Chars.length; j++) {
             if (str2Chars[j] == str1Chars[0]) {
                 dp[0][j] = 1;
@@ -50,8 +49,6 @@ public class LongestCommonSubString {
                 dp[0][j] = 0;
             }
         }
-//        System.out.println("第一行：");
-//        print(dp);
         for (int i = 1; i < str1Chars.length; i++) {
             for (int j = 1; j < str2Chars.length; j++) {
                 if (str1Chars[i] == str2Chars[j]) {
@@ -61,7 +58,6 @@ public class LongestCommonSubString {
                 }
             }
         }
-        System.out.println("完整矩阵：");
         print(dp);
         int max = dp[0][0];
         //--> j
@@ -75,7 +71,6 @@ public class LongestCommonSubString {
                     y = i;
                     x = j;
                 }
-//                max = Math.max(max,dp[i][j]);
             }
         }
         System.out.println(max + "," + x + "," + y);
@@ -86,12 +81,14 @@ public class LongestCommonSubString {
     /**
      * 优化
      * 根据解法1可以找到规律，求最长公共子串可以转换为求二阶矩阵的最大递增对角线问题
-     //          str1 a  b  c
-     //     str2  0   0  0  0
-     //       c   0   0  0  1
-     //       a   0   1  0  0
-     //       b   0   0  2  0
-     //       a   0   1  0  0
+     *     b  d  c  a  b  a
+     * a  [0, 0, 0, 1, 0, 1]
+     * b  [1, 0, 0, 0, 2, 0]
+     * c  [0, 0, 1, 0, 0, 0]
+     * b  [1, 0, 0, 0, 1, 0]
+     * d  [0, 2, 0, 0, 0, 0]
+     * a  [0, 0, 0, 1, 0, 1]
+     * b  [1, 0, 0, 0, 2, 0]
      * 求 2 1
      *
      * @param str1 string
@@ -153,9 +150,9 @@ public class LongestCommonSubString {
 
     public static void main(String[] args) {
         LongestCommonSubString longestCommonSubString = new LongestCommonSubString();
-        String str1 = "abc";
-        String str2 = "caba";
-        String res = longestCommonSubString.solution(str1, str2);
+        String s1 = "abcbdab";
+        String s2 = "bdcaba";
+        String res = longestCommonSubString.solution2(s1, s2);
         System.out.println("最长公共子串为：" + res);
     }
 }

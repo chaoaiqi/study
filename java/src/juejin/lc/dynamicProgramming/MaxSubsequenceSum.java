@@ -55,7 +55,7 @@ public class MaxSubsequenceSum {
 
     public static void main(String[] args) {
         int[] nums = {-2,1,-3,4,-1,2,1,-5,4};
-        int res = new MaxSubsequenceSum().solution2(nums);
+        int res = new MaxSubsequenceSum().solution(nums);
         System.out.println("最大子序列和为：" + res);
     }
 }

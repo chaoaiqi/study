@@ -20,8 +20,8 @@ public class LongestCommonSequence {
 //        状态转移方程公式
 //        dp[0][j] = 0; (0<=j<=m)
 //        dp[i][0] = 0; (0<=i<=n)
-//        dp[i][j] = dp[i-1][j-1] +1; (str1[i-1] == str2[j-1])
-//        dp[i][j] = max{dp[i][j-1],dp[i-1][j]}; (str1[i-1] != str2[j-1])
+//        dp[i][j] = dp[i-1][j-1] +1; (str1[i] == str2[j])
+//        dp[i][j] = max{dp[i][j-1],dp[i-1][j]}; (str1[i] != str2[j])
 //              b  d  c  a  b  a
 //         a   [0, 0, 0, 1, 0, 1]
 //         b   [1, 1, 1, 1, 2, 2]
