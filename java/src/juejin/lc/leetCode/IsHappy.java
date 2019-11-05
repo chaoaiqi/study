@@ -17,18 +17,40 @@ public class IsHappy {
      * 输入: 19
      * 输出: true
      * 解释:
-     * 12 + 92 = 82
-     * 82 + 22 = 68
-     * 62 + 82 = 100
-     * 12 + 02 + 02 = 1
+     * 1^2 + 9^2 = 82
+     * 8^2 + 2^2 = 68
+     * 6^2 + 8^2 = 100
+     * 1^2 + 0^2 + 0^2 = 1
      *
      * @param n 快乐数
      * @return 返回结果
      */
     private boolean solution(int n) {
-        return true;
+//        快慢指针思想解决该问题，思路类似判断环
+        int slow = n;
+        int fast = n;
+        do {
+            slow = recursion(slow);
+            fast = recursion(fast);
+            fast = recursion(fast);
+        }while (slow != fast);
+        return fast == 1;
+    }
+
+    private int recursion(int n){
+        int sum = 0;
+        while (n != 0){
+            int num = n % 10;
+            sum += num * num;
+            n /= 10;
+        }
+        return  sum;
     }
 
     public static void main(String[] args) {
+        int n = 2;
+        IsHappy isHappy = new IsHappy();
+        boolean res  = isHappy.solution(n);
+        System.out.println("res = " + res);
     }
 }

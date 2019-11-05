@@ -2,7 +2,7 @@ package juejin.lc.leetCode;
 
 /**
  * 1 被读作  "one 1"  ("一个一") , 即 11。
- * 11 被读作 "two 1s" ("两个一"）, 即 21。
+ * 11 被读作 "two 1" ("两个一"）, 即 21。
  * 21 被读作 "one 2",  "one 1" （"一个二" ,  "一个一") , 即 1211。
  * #TODO 迷迷糊糊
  * @author liuchao
@@ -16,8 +16,8 @@ public class CountAndSay {
      * @param n key
      * @return value
      */
-    public String countAndSay(int n) {
-        StringBuffer result = new StringBuffer();
+    private String countAndSay(int n) {
+        StringBuilder result = new StringBuilder();
         String temp = "";
 
         if (n == 1) {
