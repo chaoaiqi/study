@@ -16,12 +16,32 @@ public class CountPrimes {
      */
     private int solution(int n) {
         boolean[] isPrim = new boolean[n];
-        // 将数组舒适化为true
+        // 将数组初始化为true
         Arrays.fill(isPrim, true);
 
         for (int i = 2; i * i < n; i++) {
             if (isPrim[i]){
                 for (int j = i * i; j < n; j+=i) {
+                    System.out.println("j = " + j);
+                    isPrim[j] = false;
+                }
+            }
+        }
+        int count = 0;
+        for (int i = 2; i <n ; i++) {
+            if (isPrim[i]){
+                ++count;
+            }
+        }
+        return count;
+    }
+    private int solution2(int n) {
+        boolean[] isPrim = new boolean[n];
+        Arrays.fill(isPrim, true);
+        // 将 i的倍数全部剔除，提高for效率
+        for (int i = 2; i < n; i++) {
+            if (isPrim[i]){
+                for (int j = i * 2; j < n; j+=i) {
                     System.out.println("j = " + j);
                     isPrim[j] = false;
                 }
@@ -61,7 +81,7 @@ public class CountPrimes {
     public static void main(String[] args) {
         CountPrimes countPrimes = new CountPrimes();
         int n = 10;
-        int res = countPrimes.solution(n);
+        int res = countPrimes.solution2(n);
         System.out.println("res = " + res);
     }
 }
