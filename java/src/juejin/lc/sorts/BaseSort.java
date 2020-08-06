@@ -87,12 +87,14 @@ public class BaseSort {
      * @param tail   数组尾
      */
     private void quickSort(int[] arrays, int head, int tail) {
-        if (head >= tail) return;
+        if (head >= tail) {
+            return;
+        }
+        // 获取分区点
         int pivot = partition(arrays, head, tail);
-        quickSort(arrays, head, tail - 1);
+        quickSort(arrays, head, pivot - 1);
         quickSort(arrays, pivot + 1, tail);
     }
-
     /**
      * 分区函数
      *
@@ -104,18 +106,22 @@ public class BaseSort {
     private int partition(int[] arrays, int head, int tail) {
         int pivot = arrays[tail];
         int i = head;
-        for (int j = head; j < tail; j++) {
-            if (pivot > arrays[j]) {
-                int tmp = arrays[i];
-                arrays[i] = arrays[j];
-                arrays[j] = tmp;
-                ++i;
+        for (int j = head; j < tail; ++j) {
+            if (arrays[j] < pivot) {
+                if(i == j) {
+                    ++i;
+                } else {
+                    int tmp = arrays[i];
+                    arrays[i++] = arrays[j];
+                    arrays[j] = tmp;
+                }
             }
         }
         int tmp = arrays[i];
         arrays[i] = arrays[tail];
         arrays[tail] = tmp;
-        return pivot;
+//        System.out.println("i=" + i);
+        return i;
     }
 
     /**
@@ -203,9 +209,9 @@ public class BaseSort {
         baseSort.quickSort(quickArray, 0, quickArray.length - 1);
         System.out.print("快速排序:");
         baseSort.printAll(quickArray);
-        int[] mergeArray = {2, 4, 1, 3, 6, 5};
-        baseSort.mergeSort(mergeArray, 0, mergeArray.length - 1);
-        System.out.print("归并排序:");
-        baseSort.printAll(mergeArray);
+//        int[] mergeArray = {2, 4, 1, 3, 6, 5};
+//        baseSort.mergeSort(mergeArray, 0, mergeArray.length - 1);
+//        System.out.print("归并排序:");
+//        baseSort.printAll(mergeArray);
     }
 }
