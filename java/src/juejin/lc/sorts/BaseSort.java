@@ -209,9 +209,9 @@ public class BaseSort {
         baseSort.quickSort(quickArray, 0, quickArray.length - 1);
         System.out.print("快速排序:");
         baseSort.printAll(quickArray);
-//        int[] mergeArray = {2, 4, 1, 3, 6, 5};
-//        baseSort.mergeSort(mergeArray, 0, mergeArray.length - 1);
-//        System.out.print("归并排序:");
-//        baseSort.printAll(mergeArray);
+        int[] mergeArray = {2, 4, 1, 3, 6, 5};
+        baseSort.mergeSort(mergeArray, 0, mergeArray.length - 1);
+        System.out.print("归并排序:");
+        baseSort.printAll(mergeArray);
     }
 }
