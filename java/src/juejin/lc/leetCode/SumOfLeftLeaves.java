@@ -1,8 +1,11 @@
 package juejin.lc.leetCode;
 
 public class SumOfLeftLeaves {
-    private int sum = 0;
     /**
+     * 计算给定二叉树的所有左叶子之和。
+     *
+     * 示例：
+     *
      *     3
      *    / \
      *   9  20
@@ -10,42 +13,38 @@ public class SumOfLeftLeaves {
      *    15   7
      *
      * 在这个二叉树中，有两个左叶子，分别是 9 和 15，所以返回 24
-     * @param root 二叉树
-     * @return 返回和
+     *
+     * @param root
+     * @return
      */
     public int solution(TreeNode root) {
-        recursion(root,"root");
-        return sum;
-    }
-    private void recursion(TreeNode treeNode, String type) {
-        if (null == treeNode) return;
-        System.out.println(treeNode.val + " " + type);
-        if ("left".equals(type) && null == treeNode.left && null == treeNode.right){
-            sum += treeNode.val;
+        // 边界条件
+        if (null == root) {
+            return 0;
         }
-        System.out.println("sum ====>" + sum);
-        recursion(treeNode.left,"left");
-        recursion(treeNode.right,"right");
+        return recursion(root, false);
     }
 
-    private TreeNode createNode() {
-        TreeNode treeNode = new TreeNode(1);
-        TreeNode treeNode1 = new TreeNode(9);
-        TreeNode treeNode2 = new TreeNode(20);
-        treeNode.left = treeNode1;
-        treeNode.right = treeNode2;
-        TreeNode treeNode3 = new TreeNode(15);
-        TreeNode treeNode4 = new TreeNode(7);
-        treeNode2.left = treeNode3;
-        treeNode2.right = treeNode4;
-        return treeNode;
+    /**
+     *
+     * @param root 二叉树
+     * @param flag 是否是左节点
+     * @return
+     */
+    private int recursion(TreeNode root, boolean flag) {
+        // 边界条件
+        if(null == root) {
+            return 0;
+        }
+        if (flag && null == root.left && null == root.right) {
+            return root.val;
+        }
+        int leftSum = recursion(root.left, true);
+        int rightSum = recursion(root.right, false);
+        return leftSum + rightSum;
     }
-    public static void main(String[] args) {
-        SumOfLeftLeaves sumOfLeftLeaves = new SumOfLeftLeaves();
-        TreeNode treeNode = sumOfLeftLeaves.createNode();
-        int res = sumOfLeftLeaves.solution(treeNode);
-        System.out.println("res = " + res);
-    }
+
+
     public class TreeNode {
         int val;
         TreeNode left;
