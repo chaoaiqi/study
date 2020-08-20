@@ -29,7 +29,30 @@ public class ToHex {
      * @return
      */
     public String solution(int num) {
-        HashMap map = new HashMap();
-        return "";
+        // 思路，采用位运算
+        StringBuilder stringBuilder = new StringBuilder();
+        char[] dic = "0123456789abcdef".toCharArray();
+        while (num != 0) {
+            // 与运算
+            // 复习一下常用运算符
+            // | 按位或    只有有一则为一
+            // & 按位与    均为一则为一
+            // ^ 按位异或  相同为零不同为一
+            int res = num & 15;
+            stringBuilder.append(dic[res]);
+            System.out.println("res = " + res);
+            // 右移四位
+            num = num >>> 4;
+        }
+        if (stringBuilder.length() == 0) {
+            stringBuilder.append("0");
+        }
+        return stringBuilder.reverse().toString();
+    }
+
+    public static void main(String[] args) {
+        int num = -287;
+        String res = new ToHex().solution(num);
+        System.out.println("res = " + res);
     }
 }
