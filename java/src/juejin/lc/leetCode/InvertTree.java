@@ -9,22 +9,22 @@ package juejin.lc.leetCode;
 public class InvertTree {
     /**
      * 翻转一棵二叉树。
-     *
+     * <p>
      * 示例：
-     *
+     * <p>
      * 输入：
-     *
-     *      4
-     *    /   \
-     *   2     7
-     *  / \   / \
+     * <p>
+     * 4
+     * /   \
+     * 2     7
+     * / \   / \
      * 1   3 6   9
      * 输出：
-     *
-     *      4
-     *    /   \
-     *   7     2
-     *  / \   / \
+     * <p>
+     * 4
+     * /   \
+     * 7     2
+     * / \   / \
      * 9   6 3   1
      *
      * @param root 二叉树
@@ -39,7 +39,8 @@ public class InvertTree {
         root.right = left;
         return root;
     }
-    private TreeNode createTreeNode(){
+
+    private TreeNode createTreeNode() {
         TreeNode treeNode = new TreeNode(4);
         TreeNode treeNode1 = new TreeNode(2);
         TreeNode treeNode2 = new TreeNode(7);
@@ -55,19 +56,24 @@ public class InvertTree {
         treeNode2.right = treeNode6;
         return treeNode;
     }
+
     private void preOrderTraversal(TreeNode tree) {
-        if (null == tree){
+        if (null == tree) {
             return;
         }
         System.out.print(tree.val + " ");
         preOrderTraversal(tree.left);
         preOrderTraversal(tree.right);
     }
+
     public class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
-        TreeNode(int x) { val = x; }
+
+        TreeNode(int x) {
+            val = x;
+        }
     }
 
     public static void main(String[] args) {

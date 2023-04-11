@@ -43,6 +43,6 @@ public class AddBinary {
         AddBinary addBinary = new AddBinary();
         String a = "1010";
         String b = "1011";
-        System.out.println(addBinary.solution(a,b));
+        System.out.println(addBinary.solution(a, b));
     }
 }

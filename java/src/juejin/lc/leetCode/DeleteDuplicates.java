@@ -19,9 +19,9 @@ public class DeleteDuplicates {
     public ListNode solution(ListNode head) {
         ListNode p = head;
         while (null != p && null != p.next) {
-            if (p.val == p.next.val){
+            if (p.val == p.next.val) {
                 p.next = p.next.next;
-            }else{
+            } else {
                 p = p.next;
             }
         }
@@ -45,7 +45,7 @@ public class DeleteDuplicates {
         head.next.next.next = new ListNode(3);
         head.next.next.next.next = new ListNode(3);
         ListNode res = deleteDuplicates.solution(head);
-        while (null != res){
+        while (null != res) {
             System.out.print(res.val + " ");
             res = res.next;
         }

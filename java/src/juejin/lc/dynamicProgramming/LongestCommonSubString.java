@@ -70,9 +70,11 @@ public class LongestCommonSubString {
                     max = dp[i][j];
                     y = i;
                     x = j;
+                    System.out.println(max + "," + x + "," + y);
                 }
             }
         }
+        System.out.println("=====================");
         System.out.println(max + "," + x + "," + y);
 
         return resJoint(str1, x, y);
@@ -81,7 +83,7 @@ public class LongestCommonSubString {
     /**
      * 优化
      * 根据解法1可以找到规律，求最长公共子串可以转换为求二阶矩阵的最大递增对角线问题
-     *     b  d  c  a  b  a
+     * b  d  c  a  b  a
      * a  [0, 0, 0, 1, 0, 1]
      * b  [1, 0, 0, 0, 2, 0]
      * c  [0, 0, 1, 0, 0, 0]
@@ -150,9 +152,8 @@ public class LongestCommonSubString {
 
     public static void main(String[] args) {
         LongestCommonSubString longestCommonSubString = new LongestCommonSubString();
-        String s1 = "abcbdab";
-        String s2 = "bdcaba";
-        String res = longestCommonSubString.solution2(s1, s2);
-        System.out.println("最长公共子串为：" + res);
+        System.out.println(longestCommonSubString.solution(
+                "hhh刘璐琪#&#开黑的小姐姐#&#李贵人鸟是啥#&#架构师#&#全栈开发",
+                "架构师#&#全栈开发"));
     }
 }

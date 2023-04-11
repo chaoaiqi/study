@@ -51,6 +51,7 @@ public class NumberReverse {
     /**
      * 判断链表是否回文
      * 快慢指针法
+     *
      * @param head 链表
      * @return 返回值
      */
@@ -60,21 +61,21 @@ public class NumberReverse {
         }
         ListNode slow = head;
         ListNode fast = head;
-        while (null != fast.next && null != fast.next.next){
+        while (null != fast.next && null != fast.next.next) {
             slow = slow.next;
             fast = fast.next.next;
         }
         slow = slow.next;
         ListNode prev = null;
-        while (null != slow){
+        while (null != slow) {
             ListNode next = slow.next;
             slow.next = prev;
             prev = slow;
             slow = next;
         }
-        while (null != prev){
-            if (head.val != prev.val){
-                return  false;
+        while (null != prev) {
+            if (head.val != prev.val) {
+                return false;
             }
             head = head.next;
             prev = prev.next;
@@ -85,6 +86,7 @@ public class NumberReverse {
     private class ListNode {
         int val;
         ListNode next;
+
         ListNode(int x) {
             val = x;
         }

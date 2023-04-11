@@ -14,12 +14,17 @@ import java.util.Queue;
 public class MyStack {
 
     private Queue<Integer> queue;
-    /** Initialize your data structure here. */
+
+    /**
+     * Initialize your data structure here.
+     */
     private MyStack() {
         queue = new LinkedList<>();
     }
 
-    /** Push element x onto stack. */
+    /**
+     * Push element x onto stack.
+     */
     private void push(int x) {
         queue.add(x);
         int size = queue.size();
@@ -29,19 +34,25 @@ public class MyStack {
         }
     }
 
-    /** Removes the element on top of the stack and returns that element. */
+    /**
+     * Removes the element on top of the stack and returns that element.
+     */
     private int pop() {
-        Integer num =  queue.poll();
-        return  null == num ? -1 : num;
+        Integer num = queue.poll();
+        return null == num ? -1 : num;
     }
 
-    /** Get the top element. */
+    /**
+     * Get the top element.
+     */
     private int top() {
-        Integer num =  queue.peek();
-        return  null == num ? -1 : num;
+        Integer num = queue.peek();
+        return null == num ? -1 : num;
     }
 
-    /** Returns whether the stack is empty. */
+    /**
+     * Returns whether the stack is empty.
+     */
     private boolean empty() {
         return queue.isEmpty();
     }

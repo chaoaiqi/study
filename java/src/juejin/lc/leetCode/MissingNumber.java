@@ -73,7 +73,7 @@ public class MissingNumber {
 
     public static void main(String[] args) {
         MissingNumber missingNumber = new MissingNumber();
-        int[] nums = {0,1};
+        int[] nums = {0, 1};
 //        int[] nums = {9, 6, 4, 2, 3, 5, 7, 0, 1};
         int result = missingNumber.solution2(nums);
         System.out.println("result = " + result);

@@ -71,7 +71,7 @@ public class MinStack {
 //        System.out.println("----------------------");
 //        System.out.println("length= " + minStack.stack.size());
         int min = minStack.getMin();
-        System.out.println("最小值：" +  min);
+        System.out.println("最小值：" + min);
         minStack.pop();
         int top = minStack.top();
         System.out.println("top:" + top);

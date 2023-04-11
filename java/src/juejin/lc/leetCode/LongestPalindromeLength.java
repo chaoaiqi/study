@@ -31,7 +31,7 @@ public class LongestPalindromeLength {
             ++chars[c];
         }
         int ans = 0;
-        for (int v: chars) {
+        for (int v : chars) {
             // 忽略奇数
             ans += v / 2 * 2;
             // 填充奇数

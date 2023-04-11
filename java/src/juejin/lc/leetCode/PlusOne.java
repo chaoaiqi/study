@@ -37,7 +37,7 @@ public class PlusOne {
             for (int i = 0; i < digits.length; i++) {
                 newDigits[i + 1] = digits[i];
             }
-        }else{
+        } else {
             newDigits = digits;
         }
         return newDigits;
@@ -45,7 +45,7 @@ public class PlusOne {
 
 
     public static void main(String[] args) {
-        int[] digits = {8,9,9};
+        int[] digits = {8, 9, 9};
         int[] res = new PlusOne().solution(digits);
         for (int i = 0; i < res.length; i++) {
             System.out.print(res[i] + " ");

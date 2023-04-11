@@ -5,6 +5,7 @@ package juejin.lc.leetCode;
  * 11 被读作 "two 1" ("两个一"）, 即 21。
  * 21 被读作 "one 2",  "one 1" （"一个二" ,  "一个一") , 即 1211。
  * #TODO 迷迷糊糊
+ *
  * @author liuchao
  * @date 2019/5/24
  */
@@ -36,7 +37,7 @@ public class CountAndSay {
         int check = 1;
         char c = temp.charAt(0);
         for (int i = 1; i < temp.length(); i++) {
-        System.out.println("check = " + check + ",c = " + c + ",temp[" + i + "] = " + temp.charAt(i));
+            System.out.println("check = " + check + ",c = " + c + ",temp[" + i + "] = " + temp.charAt(i));
             if (temp.charAt(i) == c) {
                 check++;
                 continue;

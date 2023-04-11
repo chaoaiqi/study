@@ -32,7 +32,7 @@ public class FindTheDifference {
      * @return res
      */
     private char solution(String s, String t) {
-        char  difference = 0;
+        char difference = 0;
         for (int i = 0; i < s.length(); i++) {
             difference ^= s.charAt(i);
         }
@@ -46,7 +46,7 @@ public class FindTheDifference {
         String s = "abcd";
         String t = "abcde";
         FindTheDifference findTheDifference = new FindTheDifference();
-        char res = findTheDifference.solution(s,t);
+        char res = findTheDifference.solution(s, t);
         System.out.println("res = " + res);
     }
 }

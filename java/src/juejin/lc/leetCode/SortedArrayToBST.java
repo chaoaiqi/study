@@ -47,14 +47,16 @@ public class SortedArrayToBST {
             val = x;
         }
     }
-    private void inOrderTraversal(TreeNode node){
-        if (null == node){
+
+    private void inOrderTraversal(TreeNode node) {
+        if (null == node) {
             return;
         }
         System.out.print(node.val + " ");
         inOrderTraversal(node.left);
         inOrderTraversal(node.right);
     }
+
     public static void main(String[] args) {
         SortedArrayToBST sortedArrayToBST = new SortedArrayToBST();
         int[] nums = {-10, -3, 0, 5, 9};

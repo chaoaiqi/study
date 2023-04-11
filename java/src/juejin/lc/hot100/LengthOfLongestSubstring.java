@@ -29,7 +29,7 @@ public class LengthOfLongestSubstring {
     public int solution(String s) {
         Set<Character> set = new HashSet<>();
         int n = s.length();
-        int rk = -1,ans = 0;
+        int rk = -1, ans = 0;
         for (int i = 0; i < n; i++) {
             if (i != 0) {
                 set.remove(s.charAt(i - 1));

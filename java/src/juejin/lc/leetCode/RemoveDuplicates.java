@@ -17,7 +17,7 @@ public class RemoveDuplicates {
     public int solution(int[] nums) {
         int index = 0;
         for (int i = 1; i < nums.length; i++) {
-            if (nums[i] == nums[i - 1]){
+            if (nums[i] == nums[i - 1]) {
                 ++index;
                 continue;
             }
@@ -29,7 +29,7 @@ public class RemoveDuplicates {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1,1,2};
+        int[] nums = {1, 1, 2};
         RemoveDuplicates removeDuplicates = new RemoveDuplicates();
         int length = removeDuplicates.solution(nums);
         System.out.println("length = " + length);

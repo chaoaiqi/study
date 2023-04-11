@@ -7,12 +7,13 @@ package juejin.lc.leetCode;
  * "" ""  0
  * "**" "" 0
  * "" "**" -1
+ *
  * @author liuchao
  * @date 2019/5/24
  */
 public class StrStrSolution {
     public int solution(String haystack, String needle) {
-        if ("".equals(needle) ||needle.equals(haystack)) {
+        if ("".equals(needle) || needle.equals(haystack)) {
             return 0;
         }
         if ("".equals(haystack)) {
@@ -40,6 +41,6 @@ public class StrStrSolution {
         StrStrSolution strStrSolution = new StrStrSolution();
         String hasystack = "a";
         String needle = "a";
-        System.out.println(strStrSolution.solution(hasystack,needle));
+        System.out.println(strStrSolution.solution(hasystack, needle));
     }
 }

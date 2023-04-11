@@ -12,6 +12,7 @@ public class LongestCommonSequence {
     /**
      * s1 = “abcbdab”;s2 = "bdcaba"。
      * 4
+     *
      * @param s1 string
      * @param s2 string
      * @return 返回最长公共子序列长度
@@ -34,25 +35,25 @@ public class LongestCommonSequence {
         char[] str2 = s2.toCharArray();
         int[][] dp = new int[str1.length][str2.length];
         for (int i = 0; i < str1.length; i++) {
-            if (str1[i] == str2[0]){
+            if (str1[i] == str2[0]) {
                 dp[i][0] = 1;
-            }else{
+            } else {
                 dp[i][0] = 0;
             }
         }
         for (int j = 0; j < str2.length; j++) {
-            if (str2[j] == str1[0]){
+            if (str2[j] == str1[0]) {
                 dp[0][j] = 1;
-            }else{
+            } else {
                 dp[0][j] = 0;
             }
         }
         for (int i = 1; i < str1.length; i++) {
             for (int j = 1; j < str2.length; j++) {
-                if (str1[i] == str2[j]){
-                    dp[i][j] = dp[i-1][j-1] +1;
-                }else{
-                    dp[i][j] = Math.max(dp[i][j-1],dp[i-1][j]);
+                if (str1[i] == str2[j]) {
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                } else {
+                    dp[i][j] = Math.max(dp[i][j - 1], dp[i - 1][j]);
                 }
             }
         }
@@ -64,22 +65,24 @@ public class LongestCommonSequence {
                 if (dp[i][j] == length && stringBuilder.indexOf(String.valueOf(str1[i])) == -1) {
                     stringBuilder.append(str1[i]);
                 }
-                length = Math.max(length,dp[i][j]);
+                length = Math.max(length, dp[i][j]);
             }
         }
         System.out.println(stringBuilder.reverse().toString());
         return length;
     }
+
     private void print(int[][] dp) {
         for (int[] ds : dp) {
             System.out.println(Arrays.toString(ds));
         }
     }
+
     public static void main(String[] args) {
         LongestCommonSequence longestCommonSubString = new LongestCommonSequence();
-        String s1 = "abcbdab";
-        String s2 = "bdcaba";
-        int res = longestCommonSubString.solution(s1,s2);
+        String s1 = "你啊";
+        String s2 = "你好啊";
+        int res = longestCommonSubString.solution(s1, s2);
         System.out.println(res);
     }
 }

@@ -1,5 +1,9 @@
 package juejin.lc.leetCode;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * 买入股票的最佳时机
  *
@@ -65,7 +69,7 @@ public class MaxProfit {
     private int solution2(int[] prices) {
         int maxProfit = 0;
         for (int i = 1; i < prices.length; i++) {
-            if (prices[i] - prices[i - 1] > 0){
+            if (prices[i] - prices[i - 1] > 0) {
                 maxProfit += prices[i] - prices[i - 1];
             }
             System.out.println("prices[i] - prices[i - 1] = " + (prices[i] - prices[i - 1]));
@@ -73,11 +77,296 @@ public class MaxProfit {
         return maxProfit;
     }
 
+    /**
+     * 暴力破解法超出时间限制
+     *
+     * @param prices
+     * @return
+     */
+    private int solution3(int[] prices) {
+        int maxProfit = 0;
+        for (int i = 0; i < prices.length - 1; i++) {
+            for (int j = i + 1; j < prices.length; j++) {
+                int curProfit = prices[j] - prices[i];
+//                System.out.println("i = " + i + ", j = " + j + ", curProfit = " + curProfit);
+                if (maxProfit < curProfit) {
+                    maxProfit = curProfit;
+                }
+            }
+        }
+        return maxProfit;
+    }
+
+    /**
+     * 归约法
+     *
+     * @param prices
+     * @return
+     */
+    private int solution4(int[] prices) {
+        int[] profits = new int[prices.length - 1];
+        for (int i = 1; i < prices.length; i++) {
+            profits[i - 1] = prices[i] - prices[i - 1];
+        }
+        // 转成成求最大子序列和
+        System.out.println(Arrays.toString(profits));
+        int sum = 0;
+        int maxProfits = 0;
+        for (int i = 0; i < profits.length; i++) {
+            sum = sum > 0 ? sum + profits[i] : profits[i];
+            System.out.println("i = " + i + ", sum = " + sum + ", maxProfits = " + maxProfits);
+            if (maxProfits < sum) {
+                maxProfits = sum;
+            }
+        }
+        return maxProfits;
+    }
+
+    /**
+     * 贪心法
+     *
+     * @param prices
+     * @return
+     */
+    private int solution5(int[] prices) {
+        int minPrices = prices[0];
+        int maxProfit = 0;
+        for (int i = 1; i < prices.length; i++) {
+            minPrices = Math.min(minPrices, prices[i]);
+            maxProfit = Math.max(maxProfit, prices[i] - minPrices);
+            System.out.println("i = " + i + ", minPrices = " + minPrices + ", maxProfit = " + maxProfit);
+        }
+
+        return maxProfit;
+    }
+
+    /**
+     * 贪心法2
+     *
+     * @param prices
+     * @return
+     */
+    private int solution6(int[] prices) {
+        int minPrices = prices[0];
+        int maxProfit = 0;
+        for (int i = 1; i < prices.length; i++) {
+            int profit = prices[i] - minPrices;
+            if (profit > maxProfit) {
+                maxProfit = profit;
+            }
+            if (profit < 0) {
+                minPrices = prices[i];
+            }
+        }
+
+        return maxProfit;
+    }
+
+    /**
+     * 动态规划
+     *
+     * @param prices
+     * @return
+     */
+    private int solution7(int[] prices) {
+        //buyIn[i]表示第i天第最低最低买入价；
+        //saleOut[i]表示第i天第最大收益；
+        //第i天的最大收益，要么就是第i-1的收益，要么就是用第i天的价格卖出buyIn[i-1]买入的价格
+        int[] buyIn = new int[prices.length];
+        int[] saleOut = new int[prices.length];
+
+        buyIn[0] = prices[0];
+        saleOut[0] = 0;
+        for (int i = 1; i < prices.length; i++) {
+            saleOut[i] = Math.max(prices[i] - buyIn[i - 1], saleOut[i - 1]);
+            buyIn[i] = Math.min(prices[i], buyIn[i - 1]);
+        }
+        return Math.max(saleOut[prices.length - 1], 0);
+    }
+
+    /**
+     * 动规变形
+     *
+     * @param prices
+     * @return
+     */
+    private int solution8(int[] prices) {
+        int[] deltaPrices = new int[prices.length - 1];
+        for (int i = 0; i < deltaPrices.length; i++) {
+            deltaPrices[i] = prices[i + 1] - prices[i];
+        }
+        int maxProfit = maxSubArray(deltaPrices);
+        return Math.max(maxProfit, 0);
+    }
+
+    private int maxSubArray(int[] deltaPrices) {
+        int maxSum = Integer.MIN_VALUE;
+        int sum = 0;
+        for (int i = 0; i < deltaPrices.length; i++) {
+            sum += deltaPrices[i];
+            if (sum > maxSum) {
+                maxSum = sum;
+            }
+            //思想来自DP，如果一个sum为负，无论nums[i+1]是什么，那么nums[i+1]一定比nums[i+1]+sum大；
+            //因此可以找到从i+1开始新的子数组；
+            if (sum < 0) {
+                sum = 0;
+            }
+            //假设我们现在的sum就是maxSum，那么下一个数是一个负数，加入sum之后，sum变小了，但sum>0;
+        }
+
+        return maxSum;
+    }
+
+    private int solution9(int[] prices) {
+        return Math.max(maxSubArrayProfit(prices, 0, prices.length - 1), 0);
+    }
+
+    private int maxSubArrayProfit(int[] prices, int left, int right) {
+        int arrayLength = right - left + 1;
+        if (arrayLength <= 3) {
+            int maxProfit = 0;
+            for (int i = left; i < right; i++) {
+                for (int j = i + 1; j < arrayLength; j++) {
+                    int profit = prices[j] - prices[i];
+                    maxProfit = Math.max(maxProfit, profit);
+                }
+            }
+            return maxProfit;
+        }
+        //[0,1,2,3,4,5,6], (5-4)/2 + 4 = 4. 因此midIndex，也就是说midIndex+1永远有意义，如果left<right.
+        int mid = (right - left) / 2 + left;
+
+        int rightMaxProfit = maxSubArrayProfit(prices, mid + 1, right);
+        int leftMaxProfit = maxSubArrayProfit(prices, left, mid);
+        int midMaxProfit = maxProfitContainsMidIndex(prices, mid, left, right);
+
+        return Math.max(midMaxProfit, Math.max(leftMaxProfit, rightMaxProfit));
+    }
+
+    private int maxProfitContainsMidIndex(int[] prices, int mid, int left, int right) {
+        int leftMin;
+        int rightMax;
+
+        if (left < mid) {
+            leftMin = getMinNumber(prices, left, mid);
+        } else {
+            leftMin = prices[mid];
+        }
+        if (right > mid + 1) {
+            rightMax = getMaxNumber(prices, mid + 1, right);
+        } else {
+            rightMax = prices[mid + 1];
+        }
+        return rightMax - leftMin;
+    }
+
+    private int getMaxNumber(int[] prices, int start, int end) {
+        int maxSum = Integer.MIN_VALUE;
+        for (int i = start; i < end; i++) {
+            if (maxSum <= prices[i]) {
+                maxSum = prices[i];
+            }
+        }
+        return maxSum;
+    }
+
+    private int getMinNumber(int[] prices, int start, int end) {
+        int minSum = Integer.MAX_VALUE;
+        for (int i = start; i < end; i++) {
+            if (minSum > prices[i]) {
+                minSum = prices[i];
+            }
+        }
+        return minSum;
+    }
+
+    private int solution10(int[] prices) {
+        MinMaxStack minStack = new MinMaxStack();
+        MinMaxStack maxStack = new MinMaxStack();
+        int maxProfit = 0;
+        int minPrice = prices[0];
+        minStack.push(minPrice);
+
+        for (int i = prices.length - 1; i > 0; i--) {
+            maxStack.push(prices[i]);
+        }
+        System.out.println("maxStack: " + maxStack);
+        for (int i = 1; i < prices.length; i++) {
+            int profit = maxStack.getMax() - minStack.getMin();
+            if (profit > maxProfit) {
+                maxProfit = profit;
+            }
+            int price = maxStack.remove();
+            System.out.println("i = " + i + ", maxStack: " + maxStack);
+            minStack.push(price);
+        }
+        return maxProfit;
+    }
+
+
+    class MinMaxStack {
+        List<Integer> stack;
+        List<Integer> minStack;
+        List<Integer> maxStack;
+
+        public MinMaxStack() {
+            stack = new LinkedList<>();
+            minStack = new LinkedList<>();
+            maxStack = new LinkedList<>();
+        }
+
+        public void push(int x) {
+            stack.add(x);
+            int maxStackValue = Integer.MIN_VALUE;
+            int minStackValue = Integer.MAX_VALUE;
+            if (minStack.size() > 0) {
+                minStackValue = minStack.get(minStack.size() - 1);
+            }
+            if (maxStack.size() > 0) {
+                maxStackValue = maxStack.get(maxStack.size() - 1);
+            }
+            minStack.add(Math.min(minStackValue, x));
+            maxStack.add(Math.max(maxStackValue, x));
+        }
+
+        public void pop() {
+            stack.remove(stack.size() - 1);
+            minStack.remove(minStack.size() - 1);
+            maxStack.remove(maxStack.size() - 1);
+        }
+
+        public int remove() {
+            minStack.remove(minStack.size() - 1);
+            maxStack.remove(maxStack.size() - 1);
+            return stack.remove(stack.size() - 1);
+        }
+
+        public int top() {
+            return stack.get(minStack.size() - 1);
+        }
+
+        public int getMin() {
+            return minStack.get(minStack.size() - 1);
+        }
+
+        public int getMax() {
+            return maxStack.get(maxStack.size() - 1);
+        }
+
+        @Override
+        public String toString() {
+            return "MinMaxStack{" +
+                    "stack=" + stack +
+                    ", minStack=" + minStack +
+                    ", maxStack=" + maxStack +
+                    '}';
+        }
+    }
+
     public static void main(String[] args) {
-        int[] prices = {1,2,3,4,5};
-//        int[] prices = {7, 1, 5, 3, 6, 4};
         MaxProfit maxProfit = new MaxProfit();
-        int res = maxProfit.solution2(prices);
-        System.out.println(res);
+        int[] prices3 = {7, 1, 5, 3, 6, 4};
+        System.out.println(maxProfit.solution10(prices3));
     }
 }

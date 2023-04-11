@@ -48,6 +48,7 @@ public class IdWorker {
         this.datacenterId = datacenterId;
         this.sequence = sequence;
     }
+
     public long getWorkerId() {
         return workerId;
     }

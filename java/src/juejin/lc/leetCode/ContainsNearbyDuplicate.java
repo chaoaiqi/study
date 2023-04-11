@@ -37,7 +37,7 @@ public class ContainsNearbyDuplicate {
             set.add(nums[i]);
             System.out.println("size = " + set.size() + ",k = " + k);
             if (set.size() > k) {
-                System.out.println("nums[" + i + " - " +  k + "] = " + nums[i - k]);
+                System.out.println("nums[" + i + " - " + k + "] = " + nums[i - k]);
                 set.remove(nums[i - k]);
             }
             System.out.println("set = " + set.toString());
@@ -61,7 +61,7 @@ public class ContainsNearbyDuplicate {
 
     public static void main(String[] args) {
         ContainsNearbyDuplicate containsNearbyDuplicate = new ContainsNearbyDuplicate();
-        int[] nums = {1,0,1,1};
+        int[] nums = {1, 0, 1, 1};
         int k = 3;
         boolean result = containsNearbyDuplicate.solution(nums, k);
         System.out.println("result = " + result);

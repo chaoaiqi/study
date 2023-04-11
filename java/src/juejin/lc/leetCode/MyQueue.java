@@ -5,13 +5,18 @@ import java.util.Stack;
 public class MyQueue {
     private Stack<Integer> stack;
     private Stack<Integer> baseStack;
-    /** Initialize your data structure here. */
+
+    /**
+     * Initialize your data structure here.
+     */
     private MyQueue() {
         stack = new Stack<>();
         baseStack = new Stack<>();
     }
 
-    /** Push element x to the back of queue. */
+    /**
+     * Push element x to the back of queue.
+     */
     private void push(int x) {
         System.out.println(stack.toString());
         while (!stack.empty()) {
@@ -24,19 +29,25 @@ public class MyQueue {
 
     }
 
-    /** Removes the element from in front of queue and returns that element. */
+    /**
+     * Removes the element from in front of queue and returns that element.
+     */
     private int pop() {
         Integer num = stack.pop();
         return null == num ? -1 : num;
     }
 
-    /** Get the front element. */
+    /**
+     * Get the front element.
+     */
     private int peek() {
         Integer num = stack.peek();
         return null == num ? -1 : num;
     }
 
-    /** Returns whether the queue is empty. */
+    /**
+     * Returns whether the queue is empty.
+     */
     private boolean empty() {
         return stack.empty() && baseStack.empty();
     }

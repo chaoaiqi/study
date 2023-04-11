@@ -95,6 +95,7 @@ public class BaseSort {
         quickSort(arrays, head, pivot - 1);
         quickSort(arrays, pivot + 1, tail);
     }
+
     /**
      * 分区函数
      *
@@ -108,7 +109,7 @@ public class BaseSort {
         int i = head;
         for (int j = head; j < tail; ++j) {
             if (arrays[j] < pivot) {
-                if(i == j) {
+                if (i == j) {
                     ++i;
                 } else {
                     int tmp = arrays[i];

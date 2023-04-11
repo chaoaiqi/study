@@ -46,10 +46,10 @@ public class Pattern {
     /**
      * 递归匹配
      *
-     * @param ti 字符索引
-     * @param pj  正则表达式索引
+     * @param ti       字符索引
+     * @param pj       正则表达式索引
      * @param txtChars 字符
-     * @param tlen 字符长度
+     * @param tlen     字符长度
      */
     private void recursiveMatch(int ti, int pj, char[] txtChars, int tlen) {
         if (match) return;
@@ -75,9 +75,9 @@ public class Pattern {
         Pattern pattern = new Pattern(patten);
         String txtT = "666@cc.com";
         boolean resT = pattern.isMatch(txtT);
-        System.out.println(txtT + "的匹配结果："  + resT);
+        System.out.println(txtT + "的匹配结果：" + resT);
         String txtF = "666@c.con";
         boolean resF = pattern.isMatch(txtF);
-        System.out.println(txtF + "的匹配结果："  + resF);
+        System.out.println(txtF + "的匹配结果：" + resF);
     }
 }

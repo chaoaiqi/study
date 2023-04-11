@@ -27,7 +27,7 @@ public class SearchInsert {
                 return i;
             }
         }
-        if (prev != -1){
+        if (prev != -1) {
             return nums.length;
         }
         return -1;
@@ -36,13 +36,13 @@ public class SearchInsert {
     public static void main(String[] args) {
         SearchInsert searchInsert = new SearchInsert();
 //        [1,3,5,6], 5   2
-        int[] nums = {1,3,5,6};
-        System.out.println(searchInsert.solution(nums,5));
+        int[] nums = {1, 3, 5, 6};
+        System.out.println(searchInsert.solution(nums, 5));
 //        [1,3,5,6], 2   1
-        System.out.println(searchInsert.solution(nums,2));
+        System.out.println(searchInsert.solution(nums, 2));
 //        [1,3,5,6], 7   4
-        System.out.println(searchInsert.solution(nums,7));
+        System.out.println(searchInsert.solution(nums, 7));
 //        [1,3,5,6], 0   0
-        System.out.println(searchInsert.solution(nums,0));
+        System.out.println(searchInsert.solution(nums, 0));
     }
 }

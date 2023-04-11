@@ -29,16 +29,15 @@ public class MajorityElement {
         int ret = nums[0];
         System.out.println("nums[0] = " + ret);
         int count = 1;
-        for(int num : nums) {
+        for (int num : nums) {
             System.out.println("num = " + num + ", ret = " + ret + ", count = " + count);
-            if(num != ret) {
+            if (num != ret) {
                 count--;
-                if(count == 0) {
+                if (count == 0) {
                     count = 1;
                     ret = num;
                 }
-            }
-            else{
+            } else {
                 count++;
             }
         }
@@ -58,7 +57,7 @@ public class MajorityElement {
 
     public static void main(String[] args) {
         MajorityElement majorityElement = new MajorityElement();
-        int[] nums = {3,2,3,1,5,1,4,1,1};
+        int[] nums = {3, 2, 3, 1, 5, 1, 4, 1, 1};
         int res = majorityElement.solution(nums);
         System.out.println(res);
     }

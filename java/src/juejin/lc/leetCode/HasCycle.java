@@ -29,15 +29,15 @@ public class HasCycle {
      * @return 返回值
      */
     private boolean solution(ListNode head) {
-        if (null == head || null == head.next){
-            return  false;
+        if (null == head || null == head.next) {
+            return false;
         }
         ListNode slow = head;
         ListNode fast = head.next;
-        while (null != fast && null != fast.next){
+        while (null != fast && null != fast.next) {
             slow = slow.next;
             fast = fast.next.next;
-            if (slow == fast){
+            if (slow == fast) {
                 return true;
             }
         }
@@ -47,6 +47,7 @@ public class HasCycle {
     private class ListNode {
         int val;
         ListNode next;
+
         ListNode(int x) {
             val = x;
             next = null;

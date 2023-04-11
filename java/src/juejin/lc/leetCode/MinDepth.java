@@ -9,7 +9,6 @@ package juejin.lc.leetCode;
  */
 public class MinDepth {
     /**
-     *
      * @param root 二叉树
      * @return 最小深度
      */

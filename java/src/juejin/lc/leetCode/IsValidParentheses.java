@@ -24,15 +24,15 @@ public class IsValidParentheses {
         Stack<Character> stack = new Stack<>();
         char[] chars = s.toCharArray();
         for (char c : chars) {
-           if (stack.isEmpty()){
-               stack.push(c);
-           }else if (checkFull(stack.peek(),c)){
-               stack.pop();
-           }else{
-               stack.push(c);
-           }
+            if (stack.isEmpty()) {
+                stack.push(c);
+            } else if (checkFull(stack.peek(), c)) {
+                stack.pop();
+            } else {
+                stack.push(c);
+            }
         }
-        if (stack.isEmpty()){
+        if (stack.isEmpty()) {
             return true;
         }
         return false;
@@ -40,7 +40,8 @@ public class IsValidParentheses {
 
     /**
      * 校验是否完整
-     * @param prev 栈里的
+     *
+     * @param prev    栈里的
      * @param current 当前
      * @return 返回结果
      */

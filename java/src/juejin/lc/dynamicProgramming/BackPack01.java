@@ -56,7 +56,7 @@ public class BackPack01 {
                 situation(items, v, p, dp, i - 1, j);
             } else if (j - v[i] >= 0 && dp[i][j] == dp[i - 1][j - v[i]] + p[i]) {
                 items[i] = 1;
-                situation(items, v, p, dp, i - 1, j -v[i]);
+                situation(items, v, p, dp, i - 1, j - v[i]);
             }
         }
     }
